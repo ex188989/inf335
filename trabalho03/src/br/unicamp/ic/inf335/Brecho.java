@@ -19,7 +19,8 @@ public class Brecho {
 		produtos.add(nProg);
 
 		// Imprime produtos
-		for (int i=1; i<=produtos.size(); i++) {
+		for (int i=0; i <
+				produtos.size(); i++) {
 			System.out.println("Codigo = " + produtos.get(i).getCodigo() + " Nome = " + produtos.get(i).getNome() + " Valor = " + produtos.get(i).getValor());
 		}
 
@@ -28,15 +29,15 @@ public class Brecho {
 
 		System.out.println("-------------------- Produtos Ordenados -------------------");
 		// Imprime produtos ordenados
-		for (int i=1; i<=produtos.size(); i++) {
+		for (int i=0; i < produtos.size(); i++) {
 			System.out.println("Codigo = " + produtos.get(i).getCodigo() + " Nome = " + produtos.get(i).getNome() + " Valor = " + produtos.get(i).getValor());
 		}
 
 		// Calcula Média
 		Double media = 0.0;
-		int i = 1;
-		while (i<=produtos.size()) {
-			media = produtos.get(i).getValor();
+		int i = 0;
+		while (i < produtos.size()) {
+			media += produtos.get(i).getValor();
 			i++;
 		}
 		media = media / i;

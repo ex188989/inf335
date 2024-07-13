@@ -17,21 +17,21 @@ pipeline {
         stage('Build') {
             steps {
                 // Compile the code using Maven
-                sh 'mvn clean compile'
+                sh 'mvn -f trabalho05-1/pom.xml clean compile'
             }
         }
 
         stage('Test') {
             steps {
                 // Run the tests using Maven
-                sh 'mvn test'
+                sh 'mvn -f trabalho05-1/pom.xml test'
             }
         }
 
         stage('Package') {
             steps {
                 // Package the compiled code into a JAR file
-                sh 'mvn package'
+                sh 'mvn -f trabalho05-1/pom.xml package'
             }
         }
 

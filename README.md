@@ -1,9 +1,7 @@
 # INF335 – Ambientes para Concepção de Software
 
-## TRABALHO 3
+## TRABALHOS
 
-[Saiba mais](trabalho03/README.md)
-
-## TRABALHO 5
-
-[Saiba mais](trabalho05/README.md)
+- [trabalho 3](trabalho03/README.md)
+- [trabalho 5.1](trabalho05/trabalho05-1/README.md)
+- [trabalho 5.2](trabalho05/trabalho05-2/README.md)

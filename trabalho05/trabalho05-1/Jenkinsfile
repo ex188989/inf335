@@ -1,0 +1,60 @@
+pipeline {
+    agent any
+
+    tools {
+        // Define Maven tool named 'M3' installed in Jenkins
+        maven 'M3'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from version control
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Compile the code using Maven
+                sh 'mvn -f trabalho05/trabalho05-1/pom.xml clean compile'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run the tests using Maven
+                sh 'mvn -f trabalho05/trabalho05-1/pom.xml test'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                // Package the compiled code into a JAR file
+                sh 'mvn -f trabalho05/trabalho05-1/pom.xml package'
+            }
+        }
+
+        stage('Archive Artifacts') {
+            steps {
+                // Archive the JAR file and other build artifacts
+                archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up workspace after the build
+            cleanWs()
+        }
+        success {
+            // Notify if the build was successful
+            echo 'Build and tests were successful!'
+        }
+        failure {
+            // Notify if the build failed
+            echo 'Build or tests failed!'
+        }
+    }
+}
